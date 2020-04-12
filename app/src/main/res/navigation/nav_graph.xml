@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/addNoteFragment"
+        android:name="com.yoghi.mynotes.ui.AddNoteFragment"
+        android:label="AddNote"
+        tools:layout="@layout/fragment_add_note" >
+        <action
+            android:id="@+id/actionSaveNote"
+            app:destination="@id/homeFragment" />
+        <argument
+            app:argType="com.yoghi.mynotes.db.Note"
+            android:name="Note"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.yoghi.mynotes.ui.HomeFragment"
+        android:label="HomeNote"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/actionAddNote"
+            app:destination="@id/addNoteFragment" />
+    </fragment>
+</navigation>
